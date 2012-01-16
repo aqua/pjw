@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {background-color:#FFF; }
+
+#container {background-color:#FFF; width: 960px; margin-left: auto; margin-right: auto; }
+
+#header {background-color:#4E791E; font-family: Arial, "Myriad Pro", "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 18px; color:#FFF; padding: 10px 10px 10px 10px; text-align: center;  }
+
+#header a {color:#FFF; text-decoration:none;}
+
+#header a:hover {color:#FFF; text-decoration:underline;}
+
+#header a:visited {color:#FFF; text-decoration:none;}
+
+#content {background-color:#4F7A00;font-family: Arial, "Myriad Pro", "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 12px; color:#ffffff; padding: 10px 20px 10px 20px;}
+
+#content a {color:#FFF; text-decoration:underline;}
+
+#content a:hover {color:#FFF; text-decoration:underline;}
+
+#content a:visited {color:#FFF; text-decoration:underline;}
+
+#footer {background-color:#BEDE86; font-family: Arial, "Myriad Pro", "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 11px; color:#4F7A00; padding: 10px 10px 10px 10px;}
