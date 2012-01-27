@@ -39,7 +39,8 @@ in the heart of the Mission District.
 </p>
 
 </div>
-<img src="img/banner.jpg" alt="PJW banner" width="960" height="153" border="0" /><br />
+<div id="slide_canvas" style="width: 960px; height: 160px; padding-left: 1px; background-color:#bdde85;"></div>
+<!-- <img src="img/banner.jpg" alt="PJW banner" width="960" height="153" border="0" /><br /> -->
 <img src="img/tule.gif" width="960" height="155" border="0" />
 <div id="footer">
 
@@ -58,6 +59,25 @@ in the heart of the Mission District.
     po.src = 'https://apis.google.com/js/plusone.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
+</script>
+<script language="javascript" type="text/javascript" src="common/imagecanvas.js">
+</script>
+<script type="text/javascript">
+var imgcanvas = new ImageCanvas(
+  document.getElementById('slide_canvas'), null, 238, 160);
+imgcanvas.
+  setRows(1).setColumns(4).setSpacing(2).
+  setCaptionColor('#d0d0d0').
+  setFadeSteps(20).setFadeStepTime(40).
+  setRandomSwitching(true).setRandomImageOrder(true).
+  setInterval(8000).setEnableCaptions(true).setOwnerNameInCaptions(false);
+var imglist1 = new ImageList();
+//imglist1.getFromFlickrSearch({user_id: 'puddlejumpersworkshop'}, 
+imglist1.getFromFlickrPhotoset('72157629051437321', 
+  function(l) {
+    imgcanvas.setImages(l);
+    imgcanvas.init();
+  });
 </script>
 </body>
 </html>
