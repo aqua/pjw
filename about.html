@@ -28,7 +28,11 @@
 <div id="header">
   <a href="/index.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html">About</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="admissions.html">Admissions</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="faq.html">FAQs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- <a href="activities.html">Activities</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--><a href="contact.html">Contact Us</a>
 </div>
-<img src="img/banner1.jpg" alt="PJW banner" width="960" height="152" border="0" />
+<div style="width: 960px; height: 152px; background-color:#bdde85; position: relative">
+<img src="img/banner-umbrella-left.png" style="width:218px; height:152px; postion:relative; left:0px;" 
+  alt="PJW umbrella logo" />
+<div id="slide_canvas" style="position:absolute; left: 220px; top: 0px; width: 720px; height: 152px; padding-left: 1px; background-color:#bdde85;"></div>
+</div>
 <div id="content">
   <h1>About Puddle Jumpers Workshop</h1>
 <p>
@@ -96,6 +100,25 @@ children often nurturing and helping the younger ones.
 </div>
 
 </div>
+<script language="javascript" type="text/javascript" src="common/imagecanvas.js">
+</script>
+<script type="text/javascript">
+var imgcanvas = new ImageCanvas(
+  document.getElementById('slide_canvas'), null, 238, 152);
+imgcanvas.
+  setRows(1).setColumns(3).setSpacing(2).
+  setCaptionColor('#d0d0d0').
+  setFadeSteps(20).setFadeStepTime(40).
+  setRandomSwitching(true).setRandomImageOrder(true).
+  setInterval(8000).setEnableCaptions(true).setOwnerNameInCaptions(false);
+var imglist1 = new ImageList();
+//imglist1.getFromFlickrSearch({user_id: 'puddlejumpersworkshop'}, 
+imglist1.getFromFlickrPhotoset('72157629051437321', 
+  function(l) {
+    imgcanvas.setImages(l);
+    imgcanvas.init();
+  });
+</script>
 
 </body>
 </html>
