@@ -2,7 +2,7 @@
 ipn list
 <ul>
 {% for ipn in L %}
-<li><a href="dump-ipn?key={{ipn.key|urlencode}}">{{ ipn.txn_id }}</a>: {{ipn.mc_gross}} from {{ipn.first_name}} {{ipn.last_name}} <a href="mailto:{{ipn.payer_email|urlencode}}">{{ipn.payer_email}}</a> @ {{ipn.payment_date}}
+<li><a href="dump-ipn?key={{ipn.key|urlencode}}">{{ ipn.txn_id }}</a>: ${{ipn.mc_gross}} (fee ${{ipn.mc_fee}}) from {{ipn.first_name}} {{ipn.last_name}} <a href="mailto:{{ipn.payer_email|urlencode}}">{{ipn.payer_email}}</a> @ {{ipn.payment_date}}
 <br>
 </li>
 {% endfor %}
