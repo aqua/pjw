@@ -2,22 +2,20 @@ import logging
 import time
 import csv
 import os
+import webapp2
 
 import StringIO
 
 import PaypalIPN
 
-from google.appengine.dist import use_library
-use_library('django', '1.2')
 from google.appengine.ext import db
-from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 
 class Error(Exception):
   pass
 
-class DumpIPNs(webapp.RequestHandler):
+class DumpIPNs(webapp2.RequestHandler):
   def get(self):
     return self.post()
 
@@ -33,10 +31,6 @@ class DumpIPNs(webapp.RequestHandler):
     for k, v in d.iteritems():
       self.response.out.write('%s = %s\n' % (k, v))
 
-def main():
-  application = webapp.WSGIApplication(
-    [('/dump-ipn', DumpIPNs)])
-  run_wsgi_app(application)
+app = webapp2.WSGIApplication(
+  [('/dump-ipn', DumpIPNs)])
 
-if __name__ == "__main__":
-  main()

@@ -1,8 +1,10 @@
 application: puddlejumpersworkshop-hrd
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
 default_expiration: "1d"
+
 handlers:
 - url: /img
   static_dir: img
@@ -12,11 +14,19 @@ handlers:
   static_files: index.html
   upload: index.html
 - url: /accept-ipn
-  script: accept-paypal-ipn.py
+  script: accept_paypal_ipn.app
 - url: /get-payments
-  script: dump-ipns.py
+  script: dump_ipns.app
+- url: /dump-ipns
+  script: dump_ipns.app
 - url: /dump-ipn
-  script: dump-ipn.py
-- url: /[A-Za-z0-9\-]*.html
-  static_files: \1.html
+  script: dump_ipn.app
+- url: /([A-Za-z0-9\-]*.html)
+  static_files: \1
   upload: dummy|[\w\-]*.html
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
+- name: django
+  version: "1.2"

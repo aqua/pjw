@@ -1,17 +1,17 @@
 import logging
 import time
+import webapp2
 
 import PaypalIPN
 
 from google.appengine.ext import db
-from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 
 class Error(Exception):
   pass
 
-class AcceptIPN(webapp.RequestHandler):
+class AcceptIPN(webapp2.RequestHandler):
   sandbox = False
   def get(self):
     return self.post()
@@ -35,16 +35,6 @@ class AcceptIPN(webapp.RequestHandler):
       return
     self.response.out.write('ok')
 
-class AcceptIPNSandbox(AcceptIPN):
-  sandbox = True
-  pass
+app = webapp2.WSGIApplication([('/accept-ipn', AcceptIPN)])
 
-
-def main():
-  application = webapp.WSGIApplication(
-    [('/accept-ipn-sandbox', AcceptIPNSandbox),
-     ('/accept-ipn', AcceptIPN)])
-  run_wsgi_app(application)
-
-if __name__ == "__main__":
-  main()
+#run_wsgi_app(application)
