@@ -2,10 +2,28 @@
 
 body {background-color:#FFF; }
 
+ul.hnav {
+  margin: 8px;
+  padding: 1px;
+}
+
+li.hnav-first {
+  display: inline;
+  padding-right: 0.5em;
+}
 li.hnav {
   display: inline;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+li.hnav-first:before {
+  content: "";
+  margin: 0 1em 0 0;
+}
+li.hnav:before {
+  content: " ∙ ";
+  margin: 0 1em 0 0;
+  color: #7Ea94E;
 }
 
 #container {background-color:#FFF; width: 960px; }
