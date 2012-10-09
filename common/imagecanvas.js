@@ -72,6 +72,21 @@ ImageList.prototype = {
     });
   },
 
+  getFromFlickrGroupPool: function(group_id, callback) {
+    var rest_url = this._getBaseFlickrURI() +
+      '&method=flickr.groups.pools.getPhotos' +
+      '&group_id=' + escape(group_id) +
+      '&extras=o_dims,owner_name,url_s,license' +
+      '';
+    document.getElementById("debug").innerHTML =
+      "url: " + rest_url;
+    this.rest_url = rest_url;
+    this._getFromFlickrURL(rest_url, callback, function(response) {
+      this.response = response;
+      return response.photoset;
+    });
+  },
+
   getFromFlickrSearch: function(constraints, callback) {
     var rest_url = this._getBaseFlickrURI() +
       '&method=flickr.photos.search' +
